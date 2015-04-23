@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	Homework 11.04.2015
+	</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/1.js"></script>
+</head>
+<body onclick="checkClick(event);" >
+<div id="player">
+	<input id="files"  type="file" onchange="handleFileSelection(event)" accept="audio/*" multiple="true"><br>
+	<audio onvolumechange=" document.getElementById('Volume').value = this.volume * 100" onended="autoSelect();" ></audio><br>
+	<p id="curSong"></p>
+	<input class="slider" id="Volume" type="range" min="0" max="100" onchange="changeVolume( event );" > <br>
+	<input class="slider" id="Time" type="range" min="0" max="1" onchange="changeTime( event );" > <br>
+	<input class="nav" type="button" id="prev" value="<<" onclick="prev();"> 	
+	<input class="nav" type="button" id="playPause" value="&#9703; " onclick="playPause()"> 
+	<input class="nav" type="button" id="next" value=">>" onclick="next();"> <br>
+	<input class="opt" id="rand" type="button" value="&#8501"> 
+	<input class="opt" id="repeat" type="button" value="&#8634">
+	<input class="opt" id="open" type="button" value="&#9776;" onclick="showlist()">
+</div>
+</body >
+</html>
