@@ -169,11 +169,11 @@ function moveBall(){
 				var yFieldBttm	= yFieldTop + eField.offsetHeight;
 				
 				
-				/////////////// нові координати м'ячика   /////////////
+				
 				var xBall_new = xBall_cur + eBall.xStep;
 				var yBall_new = yBall_cur + eBall.yStep;
 								
-				///////////// чи не вилетів за межі поля ? //////////////////
+				
 				var rightR = parseInt(racket1.style.left) + parseInt(racket1.style.width);
 				var bottomR = parseInt(racket1.style.top) + parseInt(racket1.style.height);
 				if(xBall_new <= rightR && yBall_new > parseInt(racket1.style.top) && yBall_new < (bottomR - cxBall_width))
@@ -181,9 +181,11 @@ function moveBall(){
 					xBall_new = rightR;			
 					eBall.xStep *= -1;	
 				}
-				if( xBall_new <= xFieldLeft ){	// вдаряється об ліву межу поля
-					xBall_new = xFieldLeft;			// ставимо м'ячик на ліву межу
-					eBall.xStep *= -1;			// міняємо напрямок руху по Х
+				
+				
+				if( xBall_new <= xFieldLeft ){	
+					xBall_new = xFieldLeft;			
+					eBall.xStep *= -1;		
 					eBall.isRunning = 'false';	
 					document.getElementById('count2').innerHTML = (+document.getElementById('count2').innerHTML + 1)
 					clearInterval(eBall.intID);
@@ -196,9 +198,9 @@ function moveBall(){
 					xBall_new = leftL - cxBall_width;			
 					eBall.xStep *= -1;
 				}
-				if( ( xBall_new + cxBall_width ) >= xFieldRight ){	// вдаряється об праву межу	поля		( xBall_new + cxBall_width -- дає координату Х правої межі м'ячика )
-					xBall_new = xFieldRight - cxBall_width;			// ставимо м'ячик на праву межу
-					eBall.xStep *= -1;								// міняємо напрямок руху по Х
+				if( ( xBall_new + cxBall_width ) >= xFieldRight ){
+					xBall_new = xFieldRight - cxBall_width;		
+					eBall.xStep *= -1;							
 					eBall.isRunning = 'false';	
 					document.getElementById('count1').innerHTML = (+document.getElementById('count1').innerHTML + 1)
 					clearInterval(eBall.intID);
