@@ -265,13 +265,6 @@ function playRand(){
 	document.getElementsByTagName('audio')[0].curFileName = files[cntr].name;
 }
 
-function showlist(){
-	
-	if(playlist){
-		
-	}
-}
-
 
 
 
