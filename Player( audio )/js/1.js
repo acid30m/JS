@@ -46,11 +46,12 @@ function handleFileSelection(event){
 	else{
 	var list = document.getElementById('playlist');
 	document.getElementsByTagName("AUDIO")[0].curFileName = event.target.files[0].name;
+	var count = list.files.length;
 	for( var i = 0 ; i < nFiles ; i++ ){
 		
 		var li = document.createElement('li');
 		var curFile = event.target.files[i];
-		list.files[list.files.length + i] = curFile;
+		list.files[count + i] = curFile;
 		li.innerHTML = curFile.name;
 		li.appendChild(crbtn());
 		list.appendChild( li ); 
@@ -94,6 +95,7 @@ setInterval(
 		var audio = document.getElementsByTagName("audio")[0];
 		var time = 	document.getElementById('Time');
 		time.value = audio.currentTime;
+		time.max = audio.duration;
 	}
 ,100);
 
@@ -247,8 +249,7 @@ function chFile(file){
 			eAudio.src = e.target.result;
 			eAudio.play();
 			curSong();
-			var time = 	document.getElementById('Time');
-			time.max = eAudio.duration;
+		
 		}
 	})(document.getElementsByTagName("AUDIO")[0]);
 	
